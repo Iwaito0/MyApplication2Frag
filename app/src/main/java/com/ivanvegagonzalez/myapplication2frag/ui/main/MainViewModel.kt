@@ -17,7 +17,7 @@ class MainViewModel(): ViewModel() {
     init {
         viewModelScope.launch(Dispatchers.Main) {
             _state.value = _state.value?.copy(loading = true)
-            val ciudades =  withContext(Dispatchers.IO){ CiudadesProvider.getMovies()}
+            val ciudades =  withContext(Dispatchers.IO){ CiudadesProvider.getCiudades()}
             _state.value = _state.value?.copy(loading = false, ciudades = ciudades)
         }
     }
